@@ -10,6 +10,7 @@ import { useSelectedApplication } from "./context/SelectedApplicationContext";
 import axios from "axios";
 import moment from "moment";
 import EnvironmentVariables from "./components/Dashboard/EnvironmentVariables";
+import { TailSpin } from "react-loader-spinner";
 
 const App = () => {
   const { selectedApplication } = useSelectedApplication();
@@ -29,6 +30,7 @@ const App = () => {
   });
   const [eventHistoryData, setEventHistoryData] = useState([]);
   const [visibleRows, setVisibleRows] = useState(4);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleViewMore = useCallback(() => {
     setVisibleRows(eventHistoryData.length);
@@ -40,9 +42,9 @@ const App = () => {
     );
   }, []);
 
-  const handleActiveTabClick = useCallback((tabIndex) => {
+  const handleActiveTabClick = (tabIndex) => {
     tabIndex === 0 ? fetchCpuData() : fetchMemoryData();
-  }, []);
+  };
 
   const processData = (data, fieldName) => {
     const labels = data.map((item) =>
@@ -54,6 +56,7 @@ const App = () => {
 
   const fetchCpuData = async () => {
     try {
+      setIsLoading(true);
       const res = await axios.get(
         "https://retoolapi.dev/Ymxfa2/cpuutilization"
       );
@@ -72,13 +75,16 @@ const App = () => {
           { ...chartData.datasets[0], data: processedData.field, label: "CPU" },
         ],
       });
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   };
 
   const fetchMemoryData = async () => {
     try {
+      setIsLoading(true);
       const res = await axios.get(
         "https://retoolapi.dev/ybFVVH/memoryutilization"
       );
@@ -101,20 +107,25 @@ const App = () => {
           },
         ],
       });
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   };
 
   const fetchEventHistoryData = async () => {
     try {
+      setIsLoading(true);
       const res = await axios.get("https://retoolapi.dev/TYjDIe/eventhistory");
       const activeApplicationEventHistoryData = res.data.filter(
         (item) =>
           item.applicationId.toString() === selectedApplication.id.toString()
       );
       setEventHistoryData(activeApplicationEventHistoryData);
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   };
@@ -207,6 +218,13 @@ const App = () => {
           </p>
         </div>
       )}
+      {/* loader */}
+      {!selectedApplication?.id ||
+        (isLoading && (
+          <div className="fixed top-0 left-0 w-full h-full bg-white bg-opacity-70 z-50 flex items-center justify-center">
+            <TailSpin color="#37146B" height={50} width={50} />
+          </div>
+        ))}
     </div>
   );
 };
