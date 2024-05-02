@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Kapstan Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+As part of the Kapstan interview process, I have developed a web application that mimics the design from Figma. The web application is built using React.js and utilizes various APIs to fetch data for display. The application allows users to switch between multiple applications, view dashboard overviews, and manage environment variables as required.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Side and Top Navigation Bar**: Mimics the design from Figma for easy navigation.
+- **Application Management**: Users can switch between multiple applications using the applications dropdown in the top nav bar.
+- **Dashboard Overview**:
+  - Displays application version and live status.
+  - Shows CPU and memory metrics for all apps as a timetrend. Hovering over a timestamp displays the exact value in a tooltip.
+  - Shows deployment history for the application.
+- **Environment Variables Management**: Users can manage environment variables as per the designs in Figma.
+- **Data Integration**: Integrates with various APIs to fetch data for display:
+  - Applications API: [https://retoolapi.dev/71NNjB/applications](https://retoolapi.dev/71NNjB/applications)
+  - Memory Utilization API: [https://retoolapi.dev/ybFVVH/memoryutilization](https://retoolapi.dev/ybFVVH/memoryutilization)
+  - CPU Utilization API: [https://retoolapi.dev/Ymxfa2/cpuutilization](https://retoolapi.dev/Ymxfa2/cpuutilization)
+  - Event History API: [https://retoolapi.dev/TYjDIe/eventhistory](https://retoolapi.dev/TYjDIe/eventhistory)
+- **Retained Environment variables**: Environment variables are retained in local storage for persistence across page refreshes.
+- **Styling**: Utilizes React Tailwind CSS for styling components.
+- **Chart Display**: Utilizes Chart.js for displaying charts.
+- **Date Handling**: Utilizes Moment.js for handling time.
 
-### `npm start`
+## Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Run the application using `npm start`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `npm test`
+1. Navigate through the web application using the side and top navigation bars.
+2. Switch between applications using the dropdown in the top nav bar.
+3. Explore the dashboard overview for each application.
+4. Manage environment variables as required.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Additional Information
 
-### `npm run build`
+- **Framework**: React.js
+- **Styling**: React Tailwind CSS
+- **Chart Library**: Chart.js
+- **Date Library**: Moment.js
+- **Deployment**: The application is deployed using Netlify.
+- **Code Repository**: [GitHub Repository](https://github.com/hemaljoshi/react-assignment.git)
+- **Live Link**: [Live Demo](https://react-assignment-eight-ochre.vercel.app/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to explore the codebase and reach out for any further questions or clarifications!

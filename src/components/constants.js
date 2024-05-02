@@ -40,13 +40,13 @@ export const dashboardTabs = [
         id: 1,
         label: "Overview",
         icon: <img src={screenIcon} alt="Overview" className="w-[14.5px] h-[14.5px]" />,
-        active: false,
+        active: true,
     },
     {
         id: 2,
         label: "Environment Variables",
         icon: <img src={settingsIcon} alt="Environment Variables" className="w-[14.5px] h-[14.5px]" />,
-        active: true,
+        active: false,
     },
     {
         id: 3,
